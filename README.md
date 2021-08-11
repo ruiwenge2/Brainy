@@ -18,3 +18,5 @@ Here's a demo of the dashboard:
 And here's a demo form that uses Brainy: https://survey.ruiwenge2.repl.co
 
 ## I hope you found this useful!
+
+[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143989)](https://replit.com/talk/share/Brainy-A-survey-API-that-collects-data-from-forms/143989)
