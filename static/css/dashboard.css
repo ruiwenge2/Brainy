@@ -1,0 +1,38 @@
+#top-nav button {
+  width:125px;
+  height:50px;
+  margin:10px;
+  font-size:12.5px;
+  background:white;
+  color:blue;
+  border:1px solid blue;
+  border-radius:7.5px;
+  cursor:pointer;
+  user-select:none;
+  transition:all 0.3s ease-in-out;
+}
+#top-nav button:hover {
+  background:blue;
+  color:white;
+}
+body {
+  text-align:center;
+}
+nav {
+  left:-300px;
+}
+.main-content {
+  width:100%;
+}
+table, th, td {
+  border: 5px solid black;
+  text-align:left;
+}
+th, td {
+  height:50px;
+  padding: 7px;
+  overflow:auto;
+}
+th {
+  font-size:25px;
+}

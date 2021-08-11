@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code - Brainy</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/img/icons/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/gruvbox-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      pre {
+        width:100%;
+        text-align:left;
+        font-size:15px;
+      }
+      p {
+        font-size:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      {% include("nav.html") %}
+      <div class="main-content">
+        <h1>Code for the form</h1>
+        <h2>Hi! This page will be showing you the code for your form.</h2>
+        <p>In your HTML code, use this for the form:</p>
+        <pre><code class="language-html">&lt;form id=&quot;form&quot; action=&quot;https://brainy.ruiwenge2.repl.co/{{username}}/{{survey}}/submit&quot; method=&quot;POST&quot;&gt;
+  {% for i in inputfields %}
+  &lt;input name=&quot;{{i}}&quot;&gt;
+  {% endfor %}
+  &lt;input type=&quot;submit&quot;&gt;
+
+&lt;/form&gt;
+
+&lt;script src=&quot;https://brainy.ruiwenge2.repl.co/{{username}}/{{survey}}/script&quot;&gt;&lt;/script&gt; &lt;!-- link the script source --&gt;</code></pre>
+      <p>To use the <code>redirecturl</code> input field, do this:</p>
+      <pre><code class="language-html">&lt;form id=&quot;form&quot; action=&quot;https://brainy.ruiwenge2.repl.co/{{username}}/{{survey}}/submit&quot; method=&quot;POST&quot;&gt;
+  {% for i in inputfields %}
+  &lt;input name=&quot;{{i}}&quot;&gt;
+  {% endfor %}
+  &lt;input name=&quot;redirecturl&quot; type=&quot;hidden&quot; value=&quot;https://example.com/thanks&quot;&gt;&lt;!-- make the input hidden and redirect to https://example.com/thanks after submitting form --&gt;
+  
+  &lt;input type=&quot;submit&quot;&gt;
+
+&lt;/form&gt;
+
+&lt;script src=&quot;https://brainy.ruiwenge2.repl.co/{{username}}/{{survey}}/script&quot;&gt;&lt;/script&gt; &lt;!-- link the script source --&gt;</code></pre>
+      <p>To fetch the JSON data in JavaScript, use the code below:</p>
+      <pre><code class="language-js">fetch("https://brainy.ruiwenge2.repl.co/{{username}}/{{survey}}/json").then(response => response.json()).then(response => {
+  // do something with the "response" object
+});</code></pre><br><br>
+      </div>
+    </div>
+  </body>
+</html>

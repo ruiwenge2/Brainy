@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docs - Brainy</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/img/icons/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/gruvbox-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      pre {
+        width:100%;
+        text-align:left;
+        font-size:15px;
+      }
+      p {
+        font-size:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      {% include("nav.html") %}
+      <div class="main-content">
+        <h1>Docs</h1>
+        <p>First, create a new survey. You should see the dashboard once it has been created. You can see the code, download/view JSON, download CSV, create/rename/delete input fields, change privacy, and end the survey.</p>
+        <p>To set up your form, insert this code in your <code>body</code> tag:</p>
+        <pre><code class="language-html">&lt;form id=&quot;form&quot; action=&quot;https://brainy.ruiwenge2.repl.co/USERNAME/SURVEY/submit&quot; method=&quot;POST&quot;&gt;
+          
+  &lt;input type=&quot;submit&quot;&gt;
+
+&lt;/form&gt;
+
+&lt;script src=&quot;https://brainy.ruiwenge2.repl./USERNAME/SURVEY/script&quot;&gt;&lt;/script&gt; &lt;!-- link the script source --&gt;</code></pre><br>
+      <h2>Add input fields</h2>
+      <p>You should be able to see your input fields on the top row in the table. The hashtag (#) is not an input field, it's only for the number in which a user submitted a form. For every input field, add this to the <code>form</code> tag:</p>
+      <pre class="code-html"><code>&lt;input name=&quot;INPUTNAME&quot;&gt;</code></pre>
+      <p>You can change the types of those input tags, like multiple choice or a color picker. Click <a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank">here</a> for more information.</p>
+      <p>If you don't include all the input fields you added in the dashboard, there will be an error.</p><br>
+      <h2>Using <code>redirecturl</code></h2>
+      <p>The <code>redirecturl</code> input field allows you to redirect to a page after submitting the form, like a thank you page:</p>
+      <pre class="code-html"><code>&lt;input name=&quot;redirecturl&quot; type=&quot;hidden&quot; value=&quot;https://example.com/thanks&quot;&gt;&lt;!-- make the input hidden and redirect to https://example.com/thanks after submitting form --&gt;</pre></code>
+      <p>Remember, the value must be the full URL, not just <code>/thanks</code>.</p><br>
+      <h2>Fetching JSON data in JavaScript</h2>
+      <p>Brainy allows you to fetch JSON data, which is useful if you want to programatically find the numbers of each input field:</p>
+      <pre><code class="language-js">fetch("https://brainy.ruiwenge2.repl.co/USERNAME/{SURVEY/json").then(response => response.json()).then(response => {
+  // do something with the "response" object
+});</code></pre><br><br>
+      </div>
+    </div>
+  </body>
+</html>

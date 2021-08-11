@@ -1,0 +1,12 @@
+<div id="bars"></div>
+<div class="nav-modal"></div>
+<nav>
+  <a href="/">Home</a><br>{% if loggedIn %}
+  <a href="/surveys">Surveys</a><br>
+  <a href="/docs">Docs</a><br>
+  <a href="/logout">Logout</a><br>{% else %}
+  <a href="/docs">Docs</a><br>
+  <a href="/login">Login</a><br>
+  <a href="/signup">Sign Up</a>{% endif %}
+</nav>
+<script src="/js/nav.js"></script>

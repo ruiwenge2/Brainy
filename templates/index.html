@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home - Brainy</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link rel="icon" href="/img/icons/favicon.png">
+    {% if not loggedIn %}
+    <style>
+      nav {
+        left:-300px;
+      }
+      .main-content {
+        width:100%;
+      }
+    </style>
+    {% endif %}
+  </head>
+  <body>
+    <script src="/js/surveys.js"></script>
+    <script src="/js/modal.js"></script>
+    <script>
+      const username = "{{username}}";
+    </script>
+    <div class="page">
+      {% include("nav.html") %}
+      <div class="main-content">
+        {% if loggedIn %}
+          <h1 style="font-size:50px">Welcome, {{username}}!</h1>
+          <h3>Check the <a href="/docs">docs</a> if you don't know how to use Brainy.</h3><br><br>
+          <button onclick="newSurvey()" class="btn">New Survey</button><br><br>
+          <h3>Or go ahead and <a href="/surveys">create a new survey</a>! You can also view and manage all of your surveys there.</h3>
+          {% if recentlength > 0 %}
+            <br><br><h1>Recent Surveys:</h1>
+            {% for i in recent %}
+              <div class="survey" onclick="location.href = '/{{username}}/{{i}}/dashboard'">{{i}}</div>
+            {% endfor %}
+          {% endif %}
+        {% else %}
+          <div id="top">
+            <img id="dashboard-image" src="/img/dashboard.png">
+            <div id="description-text-wrapper">
+              <h1 id="description-text">Brainy is a user-friendly survey API that collects data from your forms. It has a dashboard and many useful features.<h1>
+              <button class="button background-blue" onclick="location.href = '/signup'">Get started</button><br>
+              <button class="button" onclick="location.href = '/login'">Login</button>
+            </div>
+          </div>
+          <div id="features">
+            <h1>Features</h1>
+            <div class="feature">Brainy has a dashboard with a table of your data.</div><br>
+            <div class="feature">It allows you to choose to redirect to a page after submitting a form.</div><br>
+            <div class="feature">Brainy lets you download data in JSON and CSV formats.</div><br>
+            <div class="feature">You can fetch JSON data.</div><br>
+            <div class="feature">Create, rename, and delete input fields.</div><br>
+            <div class="feature">Make your data public or private.</div><br>
+            <div class="feature">Don't need any more submissions? Just end the survey.</div>
+          </div>
+          <h2>It's free.</h2>
+          <button class="button" onclick="location.href = '/signup'">Sign Up</button><br><br>
+          <button class="button" onclick="location.href = '/docs'">View the docs</button><br><br>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

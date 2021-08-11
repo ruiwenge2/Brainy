@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Surveys - Brainy</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/img/icons/favicon.png">
+    <style>
+      main {
+        text-align:center;
+      }
+      .survey {
+        width:300px;
+        text-align:center;
+        background:rgb(28, 71, 117);
+        border-radius:30px;
+        height:300px;
+        display:inline-block;
+        margin:20px;
+      }
+      .survey .deletebtn {
+        background:red;
+        color:white;
+        border:2px solid red;
+      }
+      button {
+        background:white;
+        color:blue;
+        width:100px;
+        height:40px;
+        border:2px solid blue;
+        border-radius:5px;
+        cursor:pointer;
+        user-select:none;
+      }
+      main button {
+        transition:all 0.3s ease-in-out;
+      }
+      button:hover {
+        background:blue;
+        color:white;
+      }
+      .survey .deletebtn:hover {
+        opacity:0.8;
+      }
+      #new {
+        float:right;
+        margin-right:50px;
+        transition:all 0.3s ease-in-out;
+      }
+      .modal-content {
+        color:black;
+      }
+      #search {
+        width:300px;
+        height:30px;
+        font-size:1.25em;
+        border-radius:5px;
+        border:2px solid blue;
+        padding:5px;
+        float:right;
+        margin-right:50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <script src="/js/surveys.js"></script>
+      <script src="/js/modal.js"></script>
+      <script>
+        const username = "{{username}}";
+      </script>
+      {% include("nav.html") %}
+      <div class="main-content">
+        <h1>My Surveys</h1>
+        <input id="search" oninput="search()" autocomplete="off" placeholder="Search for a survey..." spellcheck="false"><br><br><br><br>
+        <button onclick="newSurvey()" id="new">New Survey</button><br><br><br><br>
+        <main>
+        {% for i in surveys %}
+        <div class="survey">
+          <p class="surveyname">{{i}}</p>
+          <button class="dashboardbtn" onclick="location.href = '/{{username}}/{{i}}/dashboard'">Dashboard</button><br><br>
+          <button class="codebtn" onclick="location.href = '/{{username}}/{{i}}/code'">Code</button><br><br>
+          <button class="renamebtn" onclick="rename('{{i}}')">Rename</button><br><br>
+          <button class="deletebtn" onclick="del('{{i}}')">Delete</button><br><br>
+        </div>
+        {% endfor %}
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

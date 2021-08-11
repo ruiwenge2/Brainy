@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard - Brainy</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <link rel="icon" href="/img/icons/favicon.png">
+    <style>
+      table {
+        width:100%;
+        height:auto;
+        overflow:auto;
+        border-collapse:collapse;
+      }
+      th, td {
+        max-width:calc(400px / {{length}});
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      {% include("nav.html") %}
+      <div class="main-content">
+        <div id="top-nav">
+          <button onclick="window.open('code')">Code</button>
+          <button onclick="window.open('downloadjson')">Download JSON</button>
+          <button onclick="window.open('json')">View JSON</button>
+          <button onclick="window.open('csv')">Download CSV</button>
+          <button onclick="newInputField()">New Input Field</button>
+          <button onclick="renameInputField()">Rename Input Field</button>
+          <button onclick="deleteInputField()">Delete Input Field</button>
+          {% if public %}
+          <button onclick="changePrivacy()">Make Private</button>
+          {% else %}
+          <button onclick="changePrivacy()">Make Public</button>
+          {% endif %}
+          {% if ended %}
+          <button>Survey Ended</button>
+          {% else %}
+          <button onclick="endSurvey()">End Survey</button>
+          {% endif %}
+        </div>
+        <h1>{{survey}}</h1>
+        {% if data == {} %}
+          <p>No data yet.</p>
+        {% endif %}
+        <table id="table">
+          <tr>
+            <th>#</th>
+            {% for i in inputfields %}
+              <th>{{i}}</th>
+            {% endfor %}
+          </tr>
+          {% for i in data %}
+            <tr>
+              <td>{{i}}</td>
+              {% for j in inputfields %}
+              <td>{{data[i][j]}}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <script src="/js/modal.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+a, a:visited {
+  color:white;
+}
+a:hover {
+  text-decoration:none;
+}
+.survey {
+  width:100px;
+  text-align:center;
+  background:rgb(28, 71, 117);
+  border-radius:30px;
+  height:100px;
+  display:inline-block;
+  margin:20px;
+  padding:100px;
+  font-size:30px;
+}
+.survey:hover {
+  opacity:0.8;
+  cursor:pointer;
+}
+.btn {
+  background:white;
+  color:blue;
+  width:150px;
+  height:60px;
+  border:2px solid blue;
+  border-radius:7.5px;
+  cursor:pointer;
+  user-select:none;
+  transition:all 0.3s ease-in-out;
+  font-size:18px;
+}
+.btn:hover {
+  background:blue;
+  color:white;
+}
+#top {
+  animation:fadeIn 1.5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0}
+  100% {opacity:1}
+}
+#top {
+  width:100%;
+  margin-bottom:50px;
+  margin-top:50px;
+}
+#description-text-wrapper {
+  padding-top:3px;
+}
+#dashboard-image {
+  float:right;
+  width:45%;
+  border:3px solid dodgerblue;
+  border-radius:10px;
+  margin-left:20px;
+  margin-top:50px;
+}
+#description-text {
+  margin-top:100px;
+}
+.button {
+  width:200px;
+  height:60px;
+  font-size:20px;
+  background:white;
+  color:blue;
+  border:2px solid blue;
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  transition:all 0.3s ease-in-out;
+}
+.button:hover {
+  background:blue;
+  color:white;
+}
+.background-blue {
+  background:blue;
+  color:white;
+  margin-bottom:20px;
+}
+.background-blue:hover {
+  background:darkblue;
+  border-color:darkblue;
+}
+#features {
+  margin-top:100px;
+  position:relative;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-name: slide;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+      -webkit-transform: translate(-100px, 0);
+      opacity: 0.5;
+  }
+  100% {
+      -webkit-transform: translate(0, 0);
+      opacity: 1;
+  }
+}
+
+.feature {
+  width:400px;
+  background:white;
+  color:blue;
+  margin-right:30px;
+  margin-bottom:30px;
+  border-radius:10px;
+  transition:all 0.3s ease-in-out;
+  padding:50px;
+  padding-top:25px;
+  padding-bottom:60px;
+  font-size:20px;
+  display:inline-block;
+}
+.feature:hover {
+  background:#e0e0e0;
+}
+@media only screen and (max-width: 700px) {
+  #dashboard-image {
+    width:90%;
+    margin-bottom:50px;
+  }
+  .feature {
+    width:75%;
+  }
+}
