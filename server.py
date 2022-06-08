@@ -2,6 +2,7 @@ from flask import Flask, session, request, render_template, redirect, make_respo
 from flask_cors import CORS, cross_origin
 from replit import db
 from shortuuid import ShortUUID
+from random import randint
 from modules import *
 import os
 
@@ -96,7 +97,7 @@ def newsurvey():
       "public":True,
       "ended":False,
       "inputfields":[],
-      "apikey":ShortUUID().random(),
+      "apikey":ShortUUID().random(randint(10, 25)),
       "data":{}
     }
     return "Success"
@@ -232,7 +233,7 @@ def submit(username, survey):
         return {"success":"false", "error":"Missing input fields"}
     number = len(info["data"]) + 1
     db[username]["surveys"][survey]["data"][number] = form
-    db[username]["surveys"][survey]["apikey"] = ShortUUID().random()
+    db[username]["surveys"][survey]["apikey"] = ShortUUID().random(randint(10, 25))
     if redirectvar:
       return redirect(redirecturl)
     return {"success":"true"}
@@ -318,7 +319,8 @@ def docs():
 
 @app.route("/logout")
 def logout():
-  del session["username"]
+  if loggedIn():
+    del session["username"]
   return redirect("/")
 
 @app.route(os.getenv("path"))
