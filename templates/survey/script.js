@@ -2,6 +2,7 @@
   let key = document.createElement("input");
   key.name = "apikey";
   key.type = "hidden";
-  key.value = "{{apikey}}";
-  document.getElementById("form").appendChild(key);
+  key.value = "";
+  {% for i in apikey %}key.value += "{{i}}";
+  {% endfor %}document.getElementById("form").appendChild(key);
 })();
